@@ -4,10 +4,7 @@ using MediatR;
 
 namespace Application.Commands;
 
-public class CreateNewOrderCommand : IRequest<Order>
-{
-    public ICollection<int> ItemIds { get; set; }
-}
+public record CreateNewOrderCommand(ICollection<int> ItemIds) : IRequest<Order>;
 
 public class CreateNewOrderCommandHandler : IRequestHandler<CreateNewOrderCommand, Order>
 {

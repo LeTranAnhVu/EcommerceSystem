@@ -4,9 +4,7 @@ using MediatR;
 
 namespace Application.Queries;
 
-public class GetAllOrdersQuery : IRequest<ICollection<OrderDto>>
-{
-}
+public record GetAllOrdersQuery : IRequest<ICollection<OrderDto>>;
 
 public class GetAllOrdersQueryHandler : IRequestHandler<GetAllOrdersQuery, ICollection<OrderDto>>
 {

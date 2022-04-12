@@ -1,6 +1,5 @@
 using Application.Commands;
 using Application.Queries;
-using Domain.Aggregates.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,9 +17,9 @@ public class OrdersController: ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<object>> Create()
+    public async Task<ActionResult<object>> Create(CreateNewOrderCommand createCommand)
     {
-        var result = await _mediator.Send(new CreateNewOrderCommand());
+        var result = await _mediator.Send(createCommand);
         return Ok(result);
     }
 
